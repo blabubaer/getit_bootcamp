@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        div.header{
+            background-color: burlywood;
+            grid-area: header;
+        }
+        div.menu{
+            background-color: white;
+            grid-area: menu;
+        }
+        div.mainContent{
+            background-color: white;
+            grid-area: mainContent;
+        }
+        div.footer{
+            background-color: grey;
+            grid-area: footer;
+        }
+        div.page {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 200px 3fr;
+            grid-template-rows: 75px 10fr 40px;
+            grid-template-areas: 'header header'
+                                 'menu mainContent'
+                                 'footer footer';
+        }
+        h2 {
+            font-size: 30px;
+            color: white;
+            text-align: center;
+        }
+        h3 { 
+            
+        }
+        h4 {
+            font-size: 25px;
+            color: black;
+            text-align: left;
+        }
+        .menu { 
+            text-align: left;
+            padding-left: 20px;
+        }
+        .mainContent {
+            margin: 10px;
+        }
+        ul {
+            list-style-type: none;
+            text-align: left;
+            padding: 0;
+            margin: 0;
+        }
+        li { 
+            padding-top: 3px;
+        }
+        a { 
+            text-decoration: none;
+            color: red;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        #copy {
+            color: white;
+            text-align: center;
+        }
+        @media only screen and (max-width: 600px) {
+        div.page {
+            grid-template-columns: 1fr;
+            grid-template-rows: 40px 1fr 4fr 40px;
+            grid-template-areas: 'header'
+                                 'menu'
+                                 'mainContent'
+                                 'footer';
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <h2>Kom ikke på noe</h2>
+        </div>
+        <div class="menu">
+            <h3>Navigation</h3>
+            <ul>
+                <li>
+                    <a target="blank" href="https://github.com/Arthurthe4">Home</a>
+                </li>
+                <li>
+                    <a target="blank" href="https://github.com/Arthurthe4">About</a>
+                </li>
+                <li>
+                    <a target="blank" href="https://github.com/Arthurthe4">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mainContent">
+            <h4>Home Page</h4>
+            <p>Lorem Ipsum er rett og slett dummytekst fra og for trykkeindustrien. Lorem Ipsum har vært bransjens standard for dummytekst helt siden 1500-tallet, da en ukjent boktrykker stokket en mengde bokstaver for å lage et prøveeksemplar av en bok. Lorem Ipsum har tålt tidens tann usedvanlig godt, og har i tillegg til å bestå gjennom fem århundrer også tålt spranget over til elektronisk typografi uten vesentlige endringer. Lorem Ipsum ble gjort allment kjent i 1960-årene ved lanseringen av Letraset-ark med avsnitt fra Lorem Ipsum, og senere med sideombrekkingsprogrammet Aldus PageMaker som tok i bruk nettopp Lorem Ipsum for dummytekst.</p>
+            <p>Lorem Ipsum er rett og slett dummytekst fra og for trykkeindustrien. Lorem Ipsum har vært bransjens standard for dummytekst helt siden 1500-tallet, da en ukjent boktrykker stokket en mengde bokstaver for å lage et prøveeksemplar av en bok. Lorem Ipsum har tålt tidens tann usedvanlig godt, og har i tillegg til å bestå gjennom fem århundrer også tålt spranget over til elektronisk typografi uten vesentlige endringer. Lorem Ipsum ble gjort allment kjent i 1960-årene ved lanseringen av Letraset-ark med avsnitt fra Lorem Ipsum, og senere med sideombrekkingsprogrammet Aldus PageMaker som tok i bruk nettopp Lorem Ipsum for dummytekst.</p>
+            <p>Lorem Ipsum er rett og slett dummytekst fra og for trykkeindustrien. Lorem Ipsum har vært bransjens standard for dummytekst helt siden 1500-tallet, da en ukjent boktrykker stokket en mengde bokstaver for å lage et prøveeksemplar av en bok. Lorem Ipsum har tålt tidens tann usedvanlig godt, og har i tillegg til å bestå gjennom fem århundrer også tålt spranget over til elektronisk typografi uten vesentlige endringer. Lorem Ipsum ble gjort allment kjent i 1960-årene ved lanseringen av Letraset-ark med avsnitt fra Lorem Ipsum, og senere med sideombrekkingsprogrammet Aldus PageMaker som tok i bruk nettopp Lorem Ipsum for dummytekst.</p>
+        </div>
+        <div class="footer">
+            <p id="copy">Copyright Ⓒ Bi****</p>
+        </div>
+    </div>
+</body>
+</html>
