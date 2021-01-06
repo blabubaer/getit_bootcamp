@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+div.header {
+  background-color: skyblue;
+  grid-area: header;
+  text-align: center;
+}
+div.menu {
+  background-color: white;
+  grid-area: menu;
+}
+div.mainContent {
+  background-color: white;
+  grid-area: mainContent;
+}
+div.footer {
+  background-color: white;
+  grid-area: footer;
+  border-top: 1px solid gray;
+}
+div.page {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 200px 3fr;
+  grid-template-rows: 75px 10fr 40px;
+  grid-template-areas:
+    "header header"
+    "mainContent mainContent"
+    "footer footer";
+}
