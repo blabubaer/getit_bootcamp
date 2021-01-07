@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnChange</title>
+</head>
+<body onload="testOnLoad()">
+    <h1>see in the console for output</h1>
+    
+    <br>
+
+    <!--New Change Functions-->
+    <button ondblclick="newTestOndblclick()">Double Click Me</button>
+    <h3 oncontextmenu="newTestOnContextMenu()">Right Click Oncontextmenu</h3>
+    <input type="text" onkeydown="newTestOnKeyDown()">Click in text field onkeydown</input>
+    <h2 id="newInfo"></h2>
+
+    <script>
+        // New CHANGE FUNCTIONS
+        function newTestOndblclick() {
+            document.getElementById('newInfo').innerHTML += '<li>ondblclick</li>';
+            console.log("ondblclick");
+        }
+
+        function newTestOnContextMenu() {
+            document.getElementById('newInfo').innerHTML += '<li>oncontextmenu</li>';
+            console.log("oncontextmenu");
+        }
+
+        function newTestOnKeyDown() {
+            document.getElementById('newInfo').innerHTML += '<li>onkeydown</li>';
+            console.log("onkeydown");
+        }
+
+        // OLD CHANGE FUNCTIONS
+        function testOnLoad() {
+            document.getElementById('info').innerHTML += '<li>onload</li>';
+            console.log("onload")
+        }
+
+      
+    </script>
+</body>
+</html>
