@@ -5,18 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" type="text/css" href="app.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src='app.js' defer></script>
   </head>
   <body>
-      <div class="page">
-        <div class="header">
-            <h1>Weather App</h1>
-        </div>
-        <div class="mainContent">
-            <h2>Data</h2>
-            <div id="root"></div>
-        </div>
-        <div class="footer"></div>
-    </div>
+        <section class="top-banner">
+          <div class="container">
+            <h1 class="heading">Weather App</h1>
+            <form>
+              <input type="text" placeholder="Search for a city" autofocus>
+              <button type="submit">SUBMIT</button>
+              <span class="msg"></span>
+            </form>
+          </div>
+        </section>
+        <section class="ajax-section">
+          <div class="container">
+            <ul class="cities"></ul>
+          </div>
+        </section>
   </body>
 </html>
