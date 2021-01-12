@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Math</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Oppgave 8</h1>
+    <div id="resultat" onload="showDiv()"></div>
+    <script>
+        function number(min, max) {
+            return Math.floor(Math.random() * (max-min)) +min; 
+        }
+        var resultatDiv = document.getElementById('resultat');
+        var resultatHtmlDiv = document.getElementById('resultatHtml');
+        showDiv();
+        function showDiv() {
+            var h = number(100, 800);
+            var w = number(100, 800);
+            var b = number(1, 10);
+            resultatDiv.innerHTML = '<div style="'
+                + 'background-color: brown;'
+                + 'width: ' + w + 'px;'
+                + 'height: ' + h + 'px;'
+                + 'border-color: darkgray;'
+                + 'border-style: solid;'
+                + 'border-width: ' + b + 'px;'
+                + '">'
+                + "width: " + w + " height: " + h + " border: " + b
+                + '</div>';
+        }
+    </script>
+</body>
+</html>

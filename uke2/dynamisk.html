@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamisk</title>
+</head>
+<body>
+    <p>Ferdighet 6 - Sette sammen teskt av flere delere og bruke dette til å bygge HTML dynamisk</p>
+
+    <input id="sizeSlider" type="range" min="100" max="500" step="10" oninput="showDiv()" />
+
+    <br/> 
+    <input id="textInput" type="text" oninput="showDiv()" value="endre teksten!" />
+
+    <select id="colorChooser" onchange="showDiv()">
+        <option value="red">Red Color</option>
+        <option selected value="green">Green Color</option>
+        <option value="blue">Blue Color</option>
+        <option value="black">Black Color</option>
+        <option value="grey">Grey Color</option>
+
+    </select>
+
+    <select id="border" onchange="showDiv()">
+        <option value="thick solid #000">Border</option>
+        <option></option>
+    </select>
+
+    <div id="resultat"></div>
+    <div id="resultatHtml" style="font-family: monospace;"></div>
+
+    <script>
+        var resultatDiv = document.getElementById('resultat');
+        var resultatHtmlDiv = document.getElementById('resultatHtml');
+        var sizeSlider = document.getElementById('sizeSlider');
+        var textInput = document.getElementById('textInput');
+        var colorChooser = document.getElementById('colorChooser');
+        var border = document.getElementById('border');
+
+        showDiv();
+
+        function showDiv() {
+            resultatDiv.innerHTML = '<div style="'
+                + 'background-color: ' + colorChooser.value + ';'
+                + 'border: ' + border.value + ';'
+                + 'width: ' + sizeSlider.value + 'px;'
+                + 'height: ' + sizeSlider.value + 'px;'
+                + '">' +
+                textInput.value + '</div>';
+            resultatHtmlDiv.innerText = resultatDiv.innerHTML;
+        }
+    </script>
+</body>
+</html>
