@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codealong uke 01</title>
+    <style>
+        #page div {
+            border: 1px solid #000;
+        }
+        #page {
+            display: grid;
+            grid-template-columns: 200px 200px 200px;
+            grid-template-rows: 200px 200px 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .x {
+            text-align: center;
+            font-size: 170px;
+            color: rosybrown;
+            border: 0;
+            
+        }
+
+        .o {
+            text-align: center;
+            font-size: 150px;
+            color: goldenrod;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Codealong uke 01</h1>
+<div id="page">
+
+    
+    <div id="1" onclick="setX(this)"></div>
+    <div id="2" onclick="setX(this)"></div>
+    <div id="3" onclick="setX(this)"></div>
+
+    <div id="4" onclick="setX(this)"></div>
+    <div id="5" onclick="setX(this)"></div>
+    <div id="6" onclick="setX(this)"></div>
+
+    <div id="7"onclick="setX(this)"></div>
+    <div id="8"onclick="setX(this)"></div>
+    <div id="9"onclick="setX(this)"></div>
+</div>
+<script>
+    function setX(clickedDiv) {
+        clickedDiv.innerHTML = '<span class="x">X</span>'
+        setO();
+    }
+    function setO() {
+        var randomNumber = 1 + Math.floor(Math.random() * 9);
+        var randomSelectedDiv = document.getElementById(randomNumber);
+            randomSelectedDiv.innerHTML = '<span class="o">O</span>'
+        //console.log(randomSelectedDiv, "is this a div");
+    }
+
+</script>
+</body>
+</html>

@@ -4,29 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oppgave 09</title>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: monospace;
+        }
+        .shapes {
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+        .borderChange {
+            display: flex;
+            align-items: center;
+        }
+        .borderColor {
+            display: flex;
+            align-items: center;
+        }
+        .colorPick {
+            display: flex;
+            align-items: center;
+        }
+        .shape {
+            display: flex;
+            align-items: center;
+        }
+        .wh {
+            display: flex;
+            align-items: center;
+        }
+
+
+    </style>
 </head>
 <body>
-    <h1>Oppgave 9</h1>
-    <div class="circle"></div>
-    <div class="square"></div>
-    <div class="triangle"></div>
+            <h1>Oppgave 9</h1>
 
-    <div class="borderChange"></div>
-    <div class="borderColor"></div>
-    <div class="colorPick"></div>
-    <div class="shape"></div>
-    <div class="wh"></div>
+            <!--Shapes-->
+            <h2>Make Shape</h2>
+            <div id="shape"></div> 
 
-    <script>
-        // make circle
-        // make square
-        // make triangle
+            <br/>
+            <div class="mainContent"></div>
+            <input id="sizeSlider" value="0" type="range" min="0" max="500" step="10" oninput="showDiv()" />
+                <!--Border on or Off-->
+                <select id="border" onchange="showDiv()">
+                    <option value="">Border Off</option>
+                    <option value="thick solid #000">On</option>
+                </select>
+                <!--Border Radius-->
+                <select id="borderRadius" onchange="showDiv()">
+                    <option>Border Radius Off</option>
+                    <option value="25">25px</option>
+                    <option value="35">35px</option>
+                    <option value="45">45px</option>
+                    <option value="55">55px</option>
+                    <option value="65">65px</option>
+                    <option value="75">75px</option>
+                    <option value="85">85px</option>
+                    <option value="95">95px</option>
+                    <option value="100">100px</option>
+                    <option value="200">200px</option>
+                    <option value="300">300px</option>
+                </select>
+                <!--Border Color-->
+                <select id="borderColorChooser" onchange="showDiv()">
+                    <option selected >Border Color</option>
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                    <option value="black">Black</option>
+                    <option value="grey">Grey</option>
+                </select>
+                <!--Background Color-->
+                <select id="colorChooser" onchange="showDiv()">
+                    <option selected>Bg Color</option>
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                    <option value="black">Black</option>
+                    <option value="grey">Grey</option>
+                </select>
+    </div>
+    </br>
+    <h2>Slider for Triangle</h2>
+    <p>is dogshit</p>
+    </br>
+    <input id="borderLeftSlider" value="0" type="range" min="0" max="500" step="10" oninput="showDiv()" />
+    <input id="borderRightSlider" value="0" type="range" min="0" max="500" step="10" oninput="showDiv()" />
+    <input id="borderBottomSlider" value="0" type="range" min="0" max="500" step="10" oninput="showDiv()" />
+    
+    
+    <script type="text/javascript" src="oppgave09.js"></script>
 
-        // put border on/off            circle/square/triangle
-        // put on border color          circle/square/triangle
-        // put on color fill            circle/square/triangle
-        // chose shape                  circle/square/triangle
-        // height and width on shape    circle/square/triangle
-    </script>
 </body>
 </html>
