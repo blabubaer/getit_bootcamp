@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input med MVC</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        // Model
+        var personName = null;
+        var age = null;
+        // View
+        updateView();
+        function updateView(){
+            var nameTxt = personName ? `Hei, ${personName}!` : 'Fyll ut navn i tekstfeltet.';
+            var ageTxt = age ? `Du er ${age} år gammel.` : 'Velg alder i slideren';
+            document.getElementById('app').innerHTML = `
+                Hva heter du? <br/>
+                <input
+                    type="text"
+                    oninput="personName = this.value"
+                    value="${personName || ''}"
+                />
+                <br/>
+
+                Hvor gammel er du? <br/>
+                <input 
+                    type="range"
+                    min="1"
+                    max="120"
+                    step="1"
+                    value="${age || 20}"
+                    oninput="age = this.value"
+                /><br/>
+                <button onclick="register()">Register</button>
+
+                <h3>Se her:</h3>
+                <hr/>
+                ${nameTxt}
+                <hr/>
+                ${ageTxt}
+                <hr/>
+                `;
+        }
+        // Controller
+        function register() {
+            //alert(personName + ' ' + age);
+            updateView();
+        } 
+    </script>
+</body>
+</html>
