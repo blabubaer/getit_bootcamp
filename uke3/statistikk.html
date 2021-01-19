@@ -11,7 +11,7 @@
         // Model 
         var sum = 0;
         var count = 0;
-        var inputValue = '';
+        var inputValue = 0;
 
         // View
         show();
@@ -41,7 +41,7 @@
         }
         // Controller
         function add() {
-            
+            sum = parseInt(inputValue) + parseInt(sum);
             show();
         }
 
