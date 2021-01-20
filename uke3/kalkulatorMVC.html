@@ -35,15 +35,14 @@
     <div id="app"></div>
     
     <script type="text/javascript">
-        // hjelpevariabler til både view og controller
-        var resultBox = document.getElementById('resultBox');
         // Model
+        var resultBox = document.getElementById('resultBox');
         let input = '';
         // View
         show();
         function show() {
             document.getElementById('app').innerHTML = `
-
+                
                 <div class="firstInRow test" onclick="addCharacter(7)">7</div>
                 <div class="test" onclick="addCharacter(8)">8</div>
                 <div class="test" onclick="addCharacter(9)">9</div>

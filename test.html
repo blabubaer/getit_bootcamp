@@ -1,41 +1,61 @@
 <!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 02 MVC</title>
 </head>
 <body>
-    <div id="content"></div>
-    <script>
-        // model
-        var sum = 0;
-        var count = 0;
-        var inputValue = '';
+    <div id="app"></div>
 
-        // view
-        show();
-        function show() {
-            document.getElementById('content').innerHTML = `
-                <p>Skriv tall i feltet og få summen, gjennomsnitt og antall.</p>
-                Tall: <input type="number" value="${inputValue}" oninput="inputValue = this.value">
-                <button onclick="add()">Legg til</button>
-                <button onclick="reset()">Nullstill</button>
-                <table>
-                    <tr><td>Sum:</td><td>${sum}</td></tr>
-                    <tr><td>Gjennomsnitt:</td><td>${count == 0 ? '<i>NA</i>' : sum / count}</td></tr>
-                    <tr><td>Antall tall:</td><td>${count}</td></tr>
-                </table>
+    <script>
+        // Model
+        var personName = null;
+        var age = null;
+
+        // View
+        updateView();
+        function updateView() {
+            var nameTxt = personName ? `Hei, ${personName}:` : `Fyll ut navn i tekstfeltet.`;
+            var ageTxt = age ? `Du er ${age} år gammel.` : `Velg alder i slidern`;
+            document.getElementById('app').innerHTML = `
+                Hva heter du? <br/>
+                <input
+                    type="text"
+                    oninput="personName = this.value; "
+                    value="${personName || ''}"
+                >
+
+                <br/>
+
+                Hvor gammel er du? <br/>
+                <input
+                    type="range"
+                    min="1"
+                    max="120"
+                    step="1"
+                    value="${age || 20}"
+                    oninput="age = this.value"
+                >
+
+                <br/>
+
+                <button onclick="register()">Register</button>
+
+                <h3>Se her:</hr>
+                <hr/>
+                ${nameTxt}
+                <hr/>
+                ${ageTxt}
+                <hr/>
                 `;
         }
 
-        // controller
-        function add() {
+        // Controller
+        function register() {
+            alert(personName + ' ' + age);
+            updateView();
         }
-
-        function reset() {
-        }
-
     </script>
 </body>
 </html>
