@@ -20,18 +20,7 @@
                 guessNumber == secretNumber ? '<b>Du har tippet riktig!</b>' :
                 guessNumber < secretNumber ? 'Du har tippet for lavt' :
                 guessNumber > secretNumber ? 'Du har tippet for høyt' :
-                '(Feil - dette skal ikke forekomm)';
-
-            // let isCorrectOrNotText;
-            // if (guessNumber == null) {
-            //     isCorrectOrNotText = 'Skriv inn tallet du vil tippe i feltet under og trykk på knappen "Tipp"<br/>';
-            // } else if (guessNumber == secretNumber) {
-            //     isCorrectOrNotText = '<b>Du har tippet riktig!</b>';
-            // } else if (guessNumber < secretNumber) {
-            //     isCorrectOrNotText = 'Du har tippet for lavt.';
-            // } else {
-            //     isCorrectOrNotText = 'Du har tippet for høyt.';
-            // }    
+                '(Feil - dette skal ikke forekomm)';  
 
             document.getElementById('app').innerHTML = `
                 <h2>Tipp-Tallet-Spillet</h2>
