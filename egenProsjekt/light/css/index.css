@@ -1,0 +1,15 @@
+body {
+  background-color: #000;
+  font-family: monospace;
+}
+h1 {
+  color: #fff;
+  font-size: 100px;
+  text-align: center;
+}
+img {
+  transform: rotate(180deg);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

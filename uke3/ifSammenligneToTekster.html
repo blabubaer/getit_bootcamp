@@ -11,32 +11,25 @@
 <body>
     <div id="app"></div>
     <script>
-        // Model
-        var infoDiv = document.getElementById('info');
-        var txtDiv1 = document.getElementById('txt1');
-        var txtDiv2 = document.getElementById('txt2');
-        var txtDiv3 = document.getElementById('txt3');
-
-        // View 
-        updateView();
-        function updateView() {
-
-            var txt1 = txtDiv1.value;
-            var txt2 = txtDiv2.value;
-            var txt3 = txtDiv3.value;
-
+        // View
+        show();
+        function show() {
             document.getElementById('app').innerHTML = `
-                <p>Ferdighet 9b - Valgsetninger - Sammenligne to tekster </p>
+                <p>Ferdighet 9b - Valgsetninger - Sammenligne to tekster</p>
                 <div id="info"></div>
                 <p>Endre på teksten! (Prøv også å fylle ut tall: 11, 101, 102</p>
-                <input type="text" id="txt1" oninput="findFirst()" value="Per" /> <br />
-                <input type="text" id="txt2" oninput="findFirst()" value="Pål" /> <br /> 
-                <input type="text" id="txt3" oninput="findFirst()" value="Espen" /> <br />
-            `; 
+                <input type="text" id="txt1" oninput="findFirst()" value="A">
+                <input type="text" id="txt2" oninput="findFirst()" value="B">
+                <input type="text" id="txt3" oninput="findFirst()" value="C">
+            `;
         }
 
-        // Controller
         function findFirst() {
+            // Model
+            var infoDiv = document.getElementById('info');
+            var txtDiv1 = document.getElementById('txt1');
+            var txtDiv2 = document.getElementById('txt2');
+            var txtDiv3 = document.getElementById('txt3');
             var txt1 = txtDiv1.value;
             var txt2 = txtDiv2.value;
             var txt3 = txtDiv3.value;
@@ -45,9 +38,6 @@
 
             if (txt1 == txt2) infoDiv.innerHTML += 'Tekst 1 og 2 er like<br/>';
             if (txt1 != txt2) infoDiv.innerHTML += '<del>Tekst 1 og 2 er like</del><br/>';
-
-            //if (txt1 == txt2) infoDiv.innerHTML += 'Tekst 1 og 2 er like<br/>';
-            //else infoDiv.innerHTML += '<del>Tekst 1 og 2 er like</del><br/>';
 
             if (txt1 == txt3) infoDiv.innerHTML += 'Tekst 1 og 3 er like<br/>';
             if (txt1 != txt3) infoDiv.innerHTML += '<del>Tekst 1 og 3 er like</del><br/>';
@@ -62,7 +52,6 @@
                 if (txt3 <= txt2) infoDiv.innerHTML += txt3;
                 else infoDiv.innerHTML += txt2;
             }
-        updateView();
         }
     </script>
 </body>

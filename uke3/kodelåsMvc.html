@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kodelås MVC</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        button {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000;
+        }
+        #passwordBox {
+            height: 30px;
+            width: 150px;
+        }
+        #app {
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #keypad {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        // Model
+        var correctPassword = 9862;
+        var passwordBox;
+        var values = [];
+        // View
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = `
+            <p id="wrongOrCorrect"></p>
+            <div id="keypad">
+                <input id="passwordBox" type="password" oninput="passwordInput()">
+                <br />
+                <button type="button" id="add" onclick="num(this)">1</button>
+                <button type="button" id="add" onclick="num(this)">2</button>
+                <button type="button" id="add" onclick="num(this)">3</button>
+                <br />
+                <button type="button" id="add" onclick="num(this)">4</button>
+                <button type="button" id="add" onclick="num(this)">5</button>
+                <button type="button" id="add" onclick="num(this)">6</button>
+                <br />
+                <button type="button" id="add" onclick="num(this)">7</button>
+                <button type="button" id="add" onclick="num(this)">8</button>
+                <button type="button" id="add" onclick="num(this)">9</button>
+            </div>
+            `;
+        }
+        // Controller
+        function passwordInput() {
+            var input = document.getElementById('passwordBox');
+            values.push(inp.value);
+            input.value = "";
+        }
+
+        function num()  {
+            
+        }
+
+    </script>
+</body>
+</html>

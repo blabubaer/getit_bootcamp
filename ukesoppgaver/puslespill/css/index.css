@@ -1,0 +1,49 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: monospace;
+  color: tomato;
+  background-color: teal;
+}
+
+h1 {
+  font-size: 80px;
+  text-align: center;
+}
+
+#puzzlearea {
+  height: 700px;
+  width: 700px;
+  display: grid;
+  margin: 0;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.place {
+  border: 1px solid #000000;
+  padding: 0px;
+  margin: 0px;
+}
+.row {
+  display: grid;
+  padding: 0px;
+  margin: 0px;
+}
+img {
+  padding: 0px;
+  border: 0px;
+}
+.fill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.fill img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
