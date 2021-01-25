@@ -20,3 +20,6 @@ function changeImage() {
         image.src = "https://www.w3schools.com/js/pic_bulbon.gif";
     }
 }
+
+// Når lyse skrus på så ser du et fadet bilde i bakgrunn 
+// og for vær 5 gange du skrur lyse av og på så nytt bilde
