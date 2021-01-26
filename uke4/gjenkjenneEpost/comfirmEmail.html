@@ -4,8 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comfirm E-Mail</title>
+    <style>
+        body {
+            font-family: monospace;
+        }
+    </style>
 </head>
 <body>
-    
+    <div id="app"></div>
+    <script>
+        // View
+        updateView()
+        function updateView() {
+            document.getElementById('app').innerHTML = `
+            <div class="mail">
+                <h2>Input an email and Submit</h2>
+                <form name="form1" action="#">
+                    <input name='text1' type="text">
+                    <button 
+                        type="submit" 
+                        name="submit" 
+                        value="submit" 
+                        onclick="ValidateEmail(document.form1.text1)">
+                        Submit
+                    </button>
+                </form>
+            </div>
+            `;
+        }
+        // Controller 
+        function ValidateEmail(inputText) {
+            var mailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            if (inputText.value.match(mailFormat)) {
+                alert("Valid email address!");
+                document.form1.text1.focus();
+                console.log(true);
+            } else {
+                alert("You have entered an invalid email address!");
+                document.form1.text1.focus();
+                console.log(false);
+            }
+        }
+    </script>
 </body>
 </html>
