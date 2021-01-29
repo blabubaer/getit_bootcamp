@@ -12,7 +12,50 @@
     <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
     <script src="../oppgave1/index.js"></script>
     <script>
-
+        QUnit.test("Date test", function(assert){
+            const isValid = isDateValid('08.10.1997');
+            assert.equal(isValid, true);
+        })
+        QUnit.test("Length", function(assert){
+            const isValid = isDateValid('08.101997');
+            assert.equal(isValid, false);
+        })
+        QUnit.test("Dots Pos", function(assert){
+            const isValid = isDateValid('.0810.1997');
+            assert.equal(isValid, false);
+        })
+        QUnit.test("Year 4 digit", function(assert){
+            const isValid = isDateValid('08.10.97');
+            assert.equal(isValid, false);
+        })
+        QUnit.test("Month 2 digit", function(assert){
+            const isValid = isDateValid('08.1.1997');
+            assert.equal(isValid, false);
+        })
+        QUnit.test("Month out side of 1-12", function(assert){
+            const isValid = isDateValid('08.15.1997');
+            assert.equal(isValid, false);
+        })
+        QUnit.test("Days more then 31", function(assert){
+            const isValid = isDateValid('99.10.1997');
+            assert.equal(isValid, false);
+        })
+        QUnit.test("Month that dosent have 31 days in it", function(assert){
+            const isValid = isDateValid('31.02.1997');
+            assert.equal(isValid, false);
+        })
+        QUnit.test("Month that dosent have 30 days in it", function(assert){
+            const isValid = isDateValid('30.02.1997');
+            assert.equal(isValid, false);
+        })
+        QUnit.test("Days 29 and 02 and leap year", function(assert){
+            const isValid = isDateValid('29.02.97');
+            assert.equal(isValid, false);
+        })
+        QUnit.test("29.02 is a leap year", function(assert){
+            const isValid = isDateValid('29.02.2000');
+            assert.equal(isValid, true);
+        })
     </script>
 </body>
 </html>
