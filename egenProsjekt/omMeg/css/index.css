@@ -5,19 +5,18 @@ body {
   padding: 0px;
   margin: 0px;
 }
-
 #headImage {
   border-radius: 50%;
 }
 .headPage {
   text-align: center;
   margin-top: 20vh;
-  height: 750px;
+  height: 650px;
 }
-
 .contentPage {
   height: 1100px;
   background-color: blue;
+  color: #fff;
 }
 .contentPage h1 {
   color: #fff;
@@ -25,7 +24,20 @@ body {
   padding-top: 40px;
   font-size: 60px;
 }
-
+.column {
+  float: left;
+  width: 30%;
+  margin: 10%;
+}
+.marginLeftRight {
+  margin: 20%;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 .footer {
   height: 200px;
   background-color: rgb(32, 78, 163);
