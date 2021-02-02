@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tre på Rad</title>
+    <style>
+        #app > div {
+            color: green;
+            background-color: lightgray;
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 2px;
+            font-size: 500%;
+            font-family: helvetica;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid #000;
+        }
+
+        div.first {
+            clear: left;
+        }
+        #app {
+            display: grid;
+            grid-template-rows: 100px 100px 100px;
+            grid-template-columns: 100px 100px 100px;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        // Model
+        var board = ['', '', '', '', '', '', '', '', '']
+
+        // View
+        showBoard();
+        function showBoard() {
+            var container = document.getElementById('app');
+            for (var i = 0; i < board.length; i++) {
+                container.innerHTML += '<div onclick="setX()"></div>';
+            }
+            
+        }
+
+        // Controller
+        function setX() {
+            
+        }
+
+        function setRandomO() {
+
+        }
+
+
+
+    </script>
+</body>
+</html>
