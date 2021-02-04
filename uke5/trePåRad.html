@@ -32,8 +32,9 @@
     </style>
 </head>
 <body>
+    <p id="button"></p>
     <div id="app"></div>
-
+    
     <script>
         // Model
         var board = ['', '', '', '', '', '', '', '', '']
@@ -46,13 +47,15 @@
         showBoard();
         function showBoard() {
             var container = document.getElementById('app');
+            var buttons = document.getElementById('button');
             let winner = checkWinning();
             var divElements = ``;
+            buttons.innerHTML = `<button onclick="restart()">Restart</button>`;
             for (var i = 0; i < board.length; i++) {
                 divElements += '<div id="'+i+'" onclick="setX(this)">'+board[i]+'</div>';
             }
             container.innerHTML = divElements + 'Winner is ' + winner;
-        }
+        }   
 
         // Controller
         function setX(field) {
@@ -64,7 +67,6 @@
                 setRandomO();
                 showBoard();
             }
-            checkWinning();
         }
 
         function setRandomO() {
@@ -77,17 +79,11 @@
             } else {
                 setRandomO();
             }
-            if(checkWinning()); //winner("O")
             showBoard();
-            checkWinning();
         }
 
         function checkWinning() {
             let winingCombo = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
-            // for (let i = 0; i < winingCombo.length; i++) {
-            //     let wincombo = winingCombo[i];
-            //     console.log(wincombo);
-            // }
             for (wincombo of winingCombo) {
                 if (iswinner(wincombo)) { return board[wincombo[0]]; }
             }
@@ -97,6 +93,15 @@
             return board[combo[0]] == board[combo[1]]
                 && board[combo[2]] == board[combo[1]]
                 && (board[combo[0]] == 'X' || board[combo[0]] == 'O');
+        }
+
+        function restart() {
+            board = ['','','', '','','', '','','' ];
+            showBoard();
+        }
+
+        function notAllowedToPlaceAfterWin(){
+            showBoard();
         }
     </script>
 </body>
