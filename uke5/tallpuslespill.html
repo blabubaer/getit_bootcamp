@@ -5,58 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tall Spill</title>
     <style>
-        .boxes {
+        p.feilmelding {
+            color: red;
+        }
+
+        div.trekkteller {
+            clear: left;
+        }
+
+        div.flis {
             color: blue;
-            background-color: azure;
-            padding: 10px;
+            background: lightblue;
+            padding: 18px;
             margin: 10px;
-            border: solid cornflowerblue 5px;
-            width: 20px;
-            height: 20px;
+            border: solid green 7px;
+            width: 30px;
+            height: 30px;
             float: left;
         }
 
-            div.førstPåLinja {
-                clear: left;
-            }
+        div.førstPåLinja {
+            clear: left;
+        }
     </style>
 </head>
 <body>
-    <div id="app"></div>
-
+    <div id="numbers"></div>
     <script>
         // Model
-
+        let count = 0;
+        let numbers = [3, 5, 6, 8, 1, 0, 2, 4, 7];
 
         // View
         pageView();
         function pageView() {
-
+            let html = '';
+            for (let i = 0; i < numbers.length; i++){
+                let number = numbers[i];
+                let isBlank = number === 0;
+                let numberText = isBlank ? '' : number;
+                let firstInLine = i % 3 == 0 ? 'førstPåLinja' : '';
+                html += 
+                    `<div class="flis ${firstInLine}"
+                            onclick="clickedNumber(${i});"
+                            >${numberText}</div>`;
+            }
+            html += `<div style="clear: both;">Antall trekk: ${count}</div>`;
+            document.getElementById('numbers').innerHTML = html;
         }
-
 
         // Controller
-        function trykk(tagElement, alt1, alt2, alt3, alt4) {
-            if (document.getElementById(alt1).innerHTML == '') {
-                document.getElementById(alt1).innerHTML = tagElement.innerHTML;
-                tagElement.innerHTML = '';
-
-            }
-            if (document.getElementById(alt2).innerHTML == '') {
-                document.getElementById(alt2).innerHTML = tagElement.innerHTML;
-                tagElement.innerHTML = '';
-            }
-
-            if (document.getElementById(alt3).innerHTML == '') {
-                document.getElementById(alt3).innerHTML = tagElement.innerHTML;
-                tagElement.innerHTML = '';
-            }
-            if (document.getElementById(alt4).innerHTML == '') {
-                document.getElementById(alt4).innerHTML = tagElement.innerHTML;
-                tagElement.innerHTML = '';
-            }
+        function clickedNumber(index) {
+            let blankIndex = findBlankIndex(index);
+            if(blankIndex == null) return;
+            count++;
+            numbers[blankIndex] = numbers[index];
+            numbers[index] = 0;
+            pageView();
         }
 
+        function findBlankIndex(index) {
+            for (let delta of [-3, -1, 1, 3]) {
+                let nedIndex = index + delta;
+                if(newIndex < 0 || newIndex >= numbers.length) continue;
+                if(numbers[newIndex] === 0) {
+                    return newIndex
+                }
+            }
+            return null;
+        }
     </script>
 </body>
 </html>
