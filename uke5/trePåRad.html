@@ -47,7 +47,6 @@
         showBoard();
         function showBoard() {
             var container = document.getElementById('app');
-            var buttons = document.getElementById('button');
             let winner = checkWinning();
             var divElements = ``;
             buttons.innerHTML = `<button onclick="restart()">Restart</button>`;
@@ -101,6 +100,9 @@
         }
 
         function notAllowedToPlaceAfterWin(){
+            // if(winner != ''){
+            //  
+            //}
             showBoard();
         }
     </script>
