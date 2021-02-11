@@ -5,20 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Obligatorisk oppgave 02</title>
+    <script src="model.js"></script>
+    <script src="controller.js"></script>
 </head>
 <body>
     <div id="content"></div>
     <script>
         // hjelpevariable for både view og controller
         var contentDiv = document.getElementById('content');
-    
-        // model
-        let numbers = [7, 3, 1, 5, 8];
-        let chosenBar = ''; // Variabel for hvilken stolpe som er valgt
-        let inputValue; // Variabel for hva som er skrevet i input-feltet
-        let disabledOrNot = 'disabled';
-        
-
         // view
         show();
         function show() {
@@ -26,30 +20,18 @@
             for (let i = 0; i < numbers.length; i++) {
                 svgInnerHtml += createBar(numbers[i], i + 1);
             }
-
-            if(chosenBar == ''){
-                disabledOrNot = 'disabled';
-            } else {
-                disabledOrNot = '';
-            }
-
-           
+            if(chosenBar == ''){disabledOrNot = 'disabled';} 
+            else {disabledOrNot = '';}
 
             contentDiv.innerHTML = `
-                <svg id="chart" width="500" viewBox="0 0 80 60">
-                    ${svgInnerHtml}
-                </svg>
-                <br/>
-                    Valgt stolpe: <i>${chosenBar}</i>
-                <br />
+                <svg id="chart" width="500" viewBox="0 0 80 60">${svgInnerHtml}</svg>
+                <br/>Valgt stolpe: <i>${chosenBar}</i><br />
                 Verdi:
-                <input type="number" min="1" max="10" oninput="inputValue = this.value" />
-                <button>Legg til stolpe</button>
-                <!-- Endre Bar som er valgt -->
-                <button ${disabledOrNot}>Endre valgt stolpe</button><br />
-                <!-- Gjøre sånn at når Bar er valgt så kan du slette den. -->
-                <button ${disabledOrNot}>Fjerne valgt stolpe</button>
-                `;
+                <input type="number" min="1" max="10" oninput="inputValue = this.value"/>
+                <button onclick="addBar()">Legg til stolpe</button>
+                <button ${disabledOrNot} onclick="change()">Endre valgt stolpe</button><br />
+                <button ${disabledOrNot} onclick="deleteBar()">Fjerne valgt stolpe</button>
+            `;
         }
     
         function createBar(number, barNo) {
@@ -63,8 +45,7 @@
             if(chosenBar == barNo) {
                 strokeOrNot = "black";
             } 
-            return `<rect stroke="${strokeOrNot}" onclick="chartClick(${barNo})" width="${width}" height="${height}"
-                                x="${x}" y="${y}" fill="${color}"></rect>`;
+            return `<rect stroke="${strokeOrNot}" onclick="chartClick(${barNo})" width="${width}" height="${height}" x="${x}" y="${y}" fill="${color}"></rect>`;
         }
     
         function calcColor(min, max, val) {
@@ -72,16 +53,6 @@
             var curPercent = (val - min) / (max - min);
             var colString = "hsl(" + ((curPercent * (maxHue - minHue)) + minHue) + ",100%,50%)";
             return colString;
-        }
-    
-        // controller (ingenting her ennå)
-        function chartClick(barNo) {
-            if(chosenBar == barNo) {
-                chosenBar = '';
-            } else {
-                chosenBar = barNo;
-            }
-            show();
         }
     </script>
 </body>

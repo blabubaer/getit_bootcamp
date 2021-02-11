@@ -9,33 +9,20 @@
     </style>
 </head>
 <body>
-    <div id="app"></div>
-
-    <script>
-        // Model
-        var randomColor = Math.floor(Math.random()*16777215).toString(16);
+    <button onclick="myFunction()">Click</button>
         
-        // View
-        updateView();
-        function updateView() {
-            document.getElementById('app').innerHTML = `
-                <button id="genNew">Generate New Random Color</button>
-                <span id="color"></span>
-            `;
-            // let html = '';
-            // for(let i = 0; i < colors.length; i++) {
-            //     let color = colors[i];
-            // }
-        }
-        // Controller
-        const setBg = () => {
-            const randomColor = 
-            Math.floor(Math.random()*16777215).toString(16);
-                document.body.style.backgroundColor = "#" + randomColor;
-                color.innerHTML = "#" + randomColor;
-        }
-        genNew.addEventListener("click", setBg);
-        setBg();
-    </script>
+        <p id="oldArray"></p>
+        <p id="newArray"></p>
+        
+        <script>
+            var arr = [1, 2, 3, 4, 5, 6];
+            function myFunction() {
+                
+                document.getElementById("oldArray").innerHTML = arr;
+                arr.pop();
+                document.getElementById("newArray").innerHTML = arr;
+                console.log( arr );
+            }
+        </script>
 </body>
 </html>
