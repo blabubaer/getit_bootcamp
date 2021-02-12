@@ -31,9 +31,7 @@ function addBar() {
         alert("To many bars. Only allowed is 10 bars");
     }
     if (inputValue > 0 && inputValue <= 10) {
-        add = numbers.push(inputValue);
-        add;
-        console.log(add);
+        numbers.push(inputValue);
     } else {
         alert("Only numbers between 1 and 10");
     } 

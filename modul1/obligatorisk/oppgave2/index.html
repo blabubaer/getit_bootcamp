@@ -15,7 +15,9 @@
         var contentDiv = document.getElementById('content');
         // view
         show();
+        
         function show() {
+            let disabledOrNot = 'disabled';
             let svgInnerHtml = '';
             for (let i = 0; i < numbers.length; i++) {
                 svgInnerHtml += createBar(numbers[i], i + 1);
