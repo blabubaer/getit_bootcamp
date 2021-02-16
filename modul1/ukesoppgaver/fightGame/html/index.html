@@ -5,9 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon</title>
-    <script src="controller.js"></script>
-    <script src="model.js"></script>
-    <script src="view.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -37,7 +34,6 @@
                                 <div>Charmander</div>
                                 <div id="HealtBarBottom">HealthBar</div>
                                 <div id="AttackBottom">
-                                    <div id="Text" style="display: none;">Text</div>
                                     <div id="Menu">Menu</div>
                                 </div>
                             
@@ -54,22 +50,22 @@
                             <div class="grid-item11"></div>
                             <!-- Button -->
                             <div class="grid-item11">
-                                <button class="btn">A</button>
+                                <button class="btn" onclick="up()">↑</button>
                             </div>
                             <div class="grid-item11"></div>  
                             <!-- Button -->
                             <div class="grid-item11">
-                                <button class="btn">B</button>
+                                <button class="btn">←</button>
                             </div>
                             <div class="grid-item11"></div>
                             <!-- Button -->
                             <div class="grid-item11">
-                                <button class="btn">C</button>
+                                <button class="btn">→</button>
                             </div>  
                             <div class="grid-item11"></div>
                             <!-- Button -->
                             <div class="grid-item11">
-                                <button class="btn">D</button>
+                                <button class="btn" onclick="down()">↓</button>
                             </div>
 
                             <div class="grid-item11"></div> 
@@ -82,7 +78,7 @@
                             <div class="grid-item11"></div>
                             <!-- Button -->
                             <div class="grid-item11">
-                                <button class="btn circle">A</button>
+                                <button type="button" class="btn circle" onclick="clicker()">A</button>
                             </div>
                             <div class="grid-item11"></div>
                             <!-- Button -->
@@ -95,5 +91,11 @@
             </div>
         </div>
     </div>
+
+
+   
+    <script src="../js/model.js"></script>
+    <script src="../js/view.js"></script>
+    <script src="../js/controller.js"></script>
 </body>
 </html>

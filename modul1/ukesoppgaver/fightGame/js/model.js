@@ -58,7 +58,7 @@ var charmander = new Pokemon(
     'Charmander',
      'fire',
       100,
-      ['./src/charmanderFront.png','./src/charmanderBack.png'],
+      ['../src/charmanderFront.png','../src/charmanderBack.png'],
       {'Ember':[1,'fire'],'Flamethrower':[2,'fire']},
       5,
       )
@@ -66,7 +66,7 @@ var bulbasaur = new Pokemon(
     'Bulbasaur',
     'plant',
     100,
-    ['./src/bulbasaurFront.png','./src/bulbasaurBack.png'],
+    ['../src/bulbasaurFront.png','../src/bulbasaurBack.png'],
     {'Vine Whip':[1,'plant'],'Razor Leaf':[2,'plant']},
     5
 )
@@ -74,7 +74,7 @@ var squirtle = new Pokemon(
     'Squirtle',
     'water',
     100,
-    ['./src/squirtleFront.png','./src/squirtleBack.png'],
+    ['../src/squirtleFront.png','../src/squirtleBack.png'],
     {'Bubble':[1,'water'],'Water Gun':[2,'water']},
     5
 )
@@ -82,7 +82,7 @@ var charmander2 = new Pokemon(
     'Charmander',
      'fire',
       100,
-      ['./src/charmanderFront.png','./src/charmanderBack.png'],
+      ['../src/charmanderFront.png','../src/charmanderBack.png'],
       {'Ember':[1,'fire'],'Flamethrower':[2,'fire']},
       5,
       )
@@ -90,7 +90,7 @@ var bulbasaur2 = new Pokemon(
     'Bulbasaur',
     'plant',
     100,
-    ['./src/bulbasaurFront.png','./src/bulbasaurBack.png'],
+    ['../src/bulbasaurFront.png','../src/bulbasaurBack.png'],
     {'Vine Whip':[1,'plant'],'Razor Leaf':[2,'plant']},
     5
 )
@@ -98,7 +98,7 @@ var squirtle2 = new Pokemon(
     'Squirtle',
     'water',
     100,
-    ['./src/squirtleFront.png','./src/squirtleBack.png'],
+    ['../src/squirtleFront.png','../src/squirtleBack.png'],
     {'Bubble':[1,'water'],'Water Gun':[2,'water']},
     5
 )
@@ -109,9 +109,9 @@ var player = new Trainer('Linn',[],[charmander,bulbasaur,squirtle])
 
 // Modell
 
-var enemy_pokemon = ''
-var player_pokemon = ''
+var enemy_pokemon
+var player_pokemon = charmander
 var text = ''
-
-var menu = ''
-var submenu = ''
+var menu
+var activecursor = 0 // Cursor position
+var stage = 1
