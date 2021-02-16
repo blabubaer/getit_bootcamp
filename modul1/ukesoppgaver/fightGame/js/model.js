@@ -102,8 +102,16 @@ var squirtle2 = new Pokemon(
     {'Bubble':[1,'water'],'Water Gun':[2,'water']},
     5
 )
-var test = new Pokemon()
 
 //Two trainer are created for the fight
 var enemy = new Trainer('Terje',[],[charmander2,bulbasaur2,squirtle2])
 var player = new Trainer('Linn',[],[charmander,bulbasaur,squirtle])
+
+// Modell
+
+var enemy_pokemon = ''
+var player_pokemon = ''
+var text = ''
+
+var menu = ''
+var submenu = ''
