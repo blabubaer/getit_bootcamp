@@ -3,7 +3,7 @@ function clicker(){
         mainmenu()
     }
     else if (stage == 2){
-        mainMenuChooser()
+        stage2()
     }
     else if(stage == 3){
         stage3()
@@ -16,6 +16,7 @@ function clicker(){
     }
     else if(stage == 32) stage32()
     else if(stage == 33) stage33()
+    else if(stage == 34) stage34()
 }
 // Stage 1
 function mainmenu() {
@@ -26,7 +27,8 @@ function mainmenu() {
 }
 
 //Stage 2
-function mainMenuChooser() {
+function stage2() {
+    text = ''
     if(activecursor == 0) {
         //Attack
         menu = []
@@ -76,7 +78,6 @@ function stage3(){
 function stage30(){
     var att = Object.keys(player_pokemon.attacks)
     text = enemy.name + "'s " + enemy_pokemon.get_attacked(player_pokemon, player_pokemon.attacks[att[activecursor]])
-    view()
     if (enemy_pokemon.hp <= 0){
         enemy_pokemon.hp = 0
         stage = 33
@@ -86,6 +87,7 @@ function stage30(){
         stage = 31
         // Enemy Attacks
     }
+    view()
 
 }
 // Stage 31 - Enemy Attacks
@@ -102,25 +104,81 @@ function stage31(){
 function stage32(){
     var att = Object.keys(enemy_pokemon.attacks)
     text = player.name + "'s " + player_pokemon.get_attacked(enemy_pokemon, enemy_pokemon.attacks[att[activecursor]])
+    if(player_pokemon.hp <= 0) {
+        player_pokemon.hp = 0
+        stage = 35
+    }
+    else{
+        stage = 1
+    }
     view()
-
-    stage = 1
 }
 
 //Stage 33 - Enemy Pokemon declared defeated
 function stage33(){
     text = enemy.name + "'s " + enemy_pokemon.name + "is defeated."
+    view()
+    // all enemy pokemon dead?
+    stage = 34    
+}
+
+//Stage 34 - All enemy P dead?
+function stage34() {
+    enemy_pokemon.name += '💀'
     var available = []
     for (var i in enemy.pokemons) {
         if (enemy.pokemons[i].hp > 0){
             available.push(i)
         }
     }
-    // next enemy Pokemon
+    // True
+    if (available == []) {
+        text = 'All of '+ enemy.name +"'s Pokemon have been defeated."
+        view()
+        stage = 80
+        //-> You have won -Outro
+    }
+    //false
+    else{
+        var num = getRndInteger(0,available.length)
+        enemy_pokemon = enemy.pokemons[num]
+        text = enemy.name + " sends " + enemy_pokemon.name + " to fight."
+        view()
+        stage = 1
+    }
 
-    // all enemy pokemon dead
+}
+//Stage 35 - Player P dead?
+function stage35(){
+    text= player.name + "'s " + player_pokemon.name + "is defeated."
+    view()
+    stage = 36
 }
 
+//Stage 36 - All player P dead?
+function stage36(){
+    var available = []
+    for (var i in player.pokemons) {
+        if (player.pokemons[i].hp > 0){
+            available.push(i)
+        }
+    }
+    // True
+    if (available == []) {
+        text = 'All of '+ player.name +"'s Pokemon have been defeated."
+        view()
+        stage = 90
+        //-> You have lost -Outro
+    }
+    //false
+    else{
+        text = "Please chose a new Pokemon."
+        view()
+        activecursor = 2
+        stage = 2
+    }
+
+}
 
 // Arrow-Buttons
 
