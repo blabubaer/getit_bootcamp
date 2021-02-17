@@ -22,11 +22,11 @@ class Pokemon{
     constructor(name, type, base_hp, image, attacks, level) {
         this.name = name;
         this.type = type;
-        this.base_hp = base_hp;
+        this.max_hp = base_hp * level;
         this.image = image; //array with first front and second back picture
         this.attacks = attacks; //Attacks is an object with name as key and an array with first strengt and second type
         this.level = level;
-        this.hp = base_hp * level;
+        this.hp = this.max_hp;
     }
     //This method takes another pokemon class and the attack that was used. 
     get_attacked(attacker, attack) {
@@ -35,11 +35,45 @@ class Pokemon{
         var defense_value = 5 * this.level;
         if (defense_value < attack_value) {
             this.hp -= (attack_value-defense_value)
+            if(this.hp<=0) this.defeated()
             return this.name + ' lost ' + (attack_value-defense_value) + ' HP.'
         }
         else {
             this.hp --
+            if(this.hp<=0) this.defeated()
             return this.name + ' lost 1HP. This is not very effective.'
+        }
+
+    }
+    defeated() {
+        this.hp = 0
+        this.name += '💀'
+    }
+
+    heal(value){
+        if(this.hp>0){
+            if((this.max_hp-this.hp) > value){
+                this.hp += value
+                return this.name + ' has received '+ value +'HP.'
+            }
+            else{
+                var new_value = this.max_hp-this.hp
+                this.hp = this.max_hp
+                return this.name + ' has received '+ new_value +'HP.'
+            }  
+        }
+        else{
+            return this.name + ' is dead...'
+        } 
+    }
+    
+    revive(){
+        if(this.hp > 0){
+            return this.name + ' is NOT dead...'
+        }
+        else{
+            this.name = this.name.substring(0,this.name.length-1)
+            this.hp = this.max_hp / 2
         }
 
     }
@@ -50,6 +84,21 @@ class Trainer{
         this.name = name;
         this.items = items;
         this.pokemons = pokemons 
+    }
+}
+
+class Item{
+    constructor(name, count, purpose, description) {
+        this.name = name;
+        this.count = count;
+        this.purpose = purpose;
+        this.description = description;
+    }
+    heal(pokemon){
+        pokemon.heal(20)
+    }
+    revive(pokemon){
+        pokemon.revive()
     }
 }
 
@@ -84,7 +133,7 @@ var charmander2 = new Pokemon(
       20,
       ['../src/charmanderFront.png','../src/charmanderBack.png'],
       {'Ember':[1,'fire'],'Flamethrower':[2,'fire']},
-      5,
+      8,
       )
 var bulbasaur2 = new Pokemon(
     'Bulbasaur',
@@ -92,7 +141,7 @@ var bulbasaur2 = new Pokemon(
     20,
     ['../src/bulbasaurFront.png','../src/bulbasaurBack.png'],
     {'Vine Whip':[1,'plant'],'Razor Leaf':[2,'plant']},
-    5
+    8,
 )
 var squirtle2 = new Pokemon(
     'Squirtle',
@@ -100,12 +149,17 @@ var squirtle2 = new Pokemon(
     20,
     ['../src/squirtleFront.png','../src/squirtleBack.png'],
     {'Bubble':[1,'water'],'Water Gun':[2,'water']},
-    5
+    8,
 )
+
+// Two Items created for Player
+var potion = new Item('Potion',2,'heal','Heals Pokemon by 20HP.')
+var revive = new Item('Revive',1,'revive','Revives a defeated Pokemon.')
 
 //Two trainer are created for the fight
 var enemy = new Trainer('Terje',[],[charmander2,bulbasaur2,squirtle2])
-var player = new Trainer('Linn',[],[charmander,bulbasaur,squirtle])
+var player = new Trainer('Linn',[potion, revive],[charmander,bulbasaur,squirtle])
+
 
 // Modell
 

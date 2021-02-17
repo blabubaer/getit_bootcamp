@@ -1,22 +1,17 @@
 function clicker(){
-    if (stage == 1) {
-        mainmenu()
-    }
-    else if (stage == 2){
-        stage2()
-    }
-    else if(stage == 3){
-        stage3()
-    }
-    else if(stage == 30){
-        stage30()
-    }
-    else if(stage == 31){
-        stage31()
-    }
+    if (stage == 1) mainmenu()
+    else if(stage == 2) stage2()
+    else if(stage == 3) stage3()
+    else if(stage == 5) stage5()
+    else if(stage == 30) stage30()
+    else if(stage == 31) stage31()
     else if(stage == 32) stage32()
     else if(stage == 33) stage33()
     else if(stage == 34) stage34()
+    else if(stage == 35) stage35()
+    else if(stage == 36) stage36()
+    
+
 }
 // Stage 1
 function mainmenu() {
@@ -43,17 +38,26 @@ function stage2() {
     }
     else if(activecursor == 1) {
         //Items
-
+        menu = []
+        activecursor = 0
+        console.log(player.items)
+        for (var i in player.items) {
+            console.log(player.items[i])
+            menu.push(player.items[i].name)
+        }
+        view()
+        stage = 4
         //-> Stage 4
     }
     else if(activecursor == 2) {
         //Pokemon
         menu = []
         activecursor = 0
-        for (var i in player.pokemons) {
-            menu.push(player.pokemons[i].name)
+        for (var p in player.pokemons) {
+            menu.push(player.pokemons[p].name)
         }
         view()
+        stage = 5
         // -> Stage 5
     }
     else if(activecursor == 3) {
@@ -124,7 +128,6 @@ function stage33(){
 
 //Stage 34 - All enemy P dead?
 function stage34() {
-    enemy_pokemon.name += '💀'
     var available = []
     for (var i in enemy.pokemons) {
         if (enemy.pokemons[i].hp > 0){
@@ -141,7 +144,7 @@ function stage34() {
     //false
     else{
         var num = getRndInteger(0,available.length)
-        enemy_pokemon = enemy.pokemons[num]
+        enemy_pokemon = enemy.pokemons[available[num]]
         text = enemy.name + " sends " + enemy_pokemon.name + " to fight."
         view()
         stage = 1
@@ -164,7 +167,7 @@ function stage36(){
         }
     }
     // True
-    if (available == []) {
+    if (available.length == 0) {
         text = 'All of '+ player.name +"'s Pokemon have been defeated."
         view()
         stage = 90
@@ -173,6 +176,25 @@ function stage36(){
     //false
     else{
         text = "Please chose a new Pokemon."
+        view()
+        activecursor = 2
+        stage = 2
+    }
+
+}
+
+//Pokemon chooser
+//Stage 5 - Is chosen P alive
+function stage5(){
+    menu = null
+    if(player.pokemons[activecursor].hp > 0){
+        player_pokemon = player.pokemons[activecursor]
+        text = player.name + " sends " + player_pokemon.name + " do fight."
+        view()
+        stage = 1
+    }
+    else{
+        text = player.pokemons[activecursor].name + " can no longer fight. Please chose another."
         view()
         activecursor = 2
         stage = 2
