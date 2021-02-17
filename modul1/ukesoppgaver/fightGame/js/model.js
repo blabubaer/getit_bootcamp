@@ -1,4 +1,4 @@
-const typenchart = {
+const typechart = {
     'plant' : {
         'plant' : 1,
         'fire' : 0.5,
@@ -24,22 +24,22 @@ class Pokemon{
         this.type = type;
         this.base_hp = base_hp;
         this.image = image; //array with first front and second back picture
-        this.attacks = attacks; //Attacks should be an object with attack_name,strength and type
+        this.attacks = attacks; //Attacks is an object with name as key and an array with first strengt and second type
         this.level = level;
         this.hp = base_hp * level;
     }
     //This method takes another pokemon class and the attack that was used. 
     get_attacked(attacker, attack) {
-        type_mul = typechart[attack.type][this.type];
-        attack_value = 4 * type_mul * attacker.level;
-        defense_value = 5 * this.level;
+        var type_mul = typechart[attack[1]][this.type];
+        var attack_value = 4 * type_mul * attacker.level * attack[0];
+        var defense_value = 5 * this.level;
         if (defense_value < attack_value) {
             this.hp -= (attack_value-defense_value)
             return this.name + ' lost ' + (attack_value-defense_value) + ' HP.'
         }
         else {
-            this.hp -= 1
-            return 'Such a puny attack does almost nothing! Muahahahaha'
+            this.hp --
+            return this.name + ' lost 1HP. This is not very effective.'
         }
 
     }
@@ -57,7 +57,7 @@ class Trainer{
 var charmander = new Pokemon(
     'Charmander',
      'fire',
-      100,
+      20,
       ['../src/charmanderFront.png','../src/charmanderBack.png'],
       {'Ember':[1,'fire'],'Flamethrower':[2,'fire']},
       5,
@@ -65,7 +65,7 @@ var charmander = new Pokemon(
 var bulbasaur = new Pokemon(
     'Bulbasaur',
     'plant',
-    100,
+    20,
     ['../src/bulbasaurFront.png','../src/bulbasaurBack.png'],
     {'Vine Whip':[1,'plant'],'Razor Leaf':[2,'plant']},
     5
@@ -73,7 +73,7 @@ var bulbasaur = new Pokemon(
 var squirtle = new Pokemon(
     'Squirtle',
     'water',
-    100,
+    20,
     ['../src/squirtleFront.png','../src/squirtleBack.png'],
     {'Bubble':[1,'water'],'Water Gun':[2,'water']},
     5
@@ -81,7 +81,7 @@ var squirtle = new Pokemon(
 var charmander2 = new Pokemon(
     'Charmander',
      'fire',
-      100,
+      20,
       ['../src/charmanderFront.png','../src/charmanderBack.png'],
       {'Ember':[1,'fire'],'Flamethrower':[2,'fire']},
       5,
@@ -89,7 +89,7 @@ var charmander2 = new Pokemon(
 var bulbasaur2 = new Pokemon(
     'Bulbasaur',
     'plant',
-    100,
+    20,
     ['../src/bulbasaurFront.png','../src/bulbasaurBack.png'],
     {'Vine Whip':[1,'plant'],'Razor Leaf':[2,'plant']},
     5
@@ -97,7 +97,7 @@ var bulbasaur2 = new Pokemon(
 var squirtle2 = new Pokemon(
     'Squirtle',
     'water',
-    100,
+    20,
     ['../src/squirtleFront.png','../src/squirtleBack.png'],
     {'Bubble':[1,'water'],'Water Gun':[2,'water']},
     5
@@ -109,8 +109,8 @@ var player = new Trainer('Linn',[],[charmander,bulbasaur,squirtle])
 
 // Modell
 
-var enemy_pokemon
-var player_pokemon = charmander
+var enemy_pokemon = charmander2
+var player_pokemon = squirtle
 var text = ''
 var menu
 var activecursor = 0 // Cursor position

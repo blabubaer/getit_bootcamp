@@ -70,12 +70,12 @@ body {
   padding-top: 98px;
 }
 
-#HealtBarTop {
+#healthbarE {
   width: 225px;
   border: 1px solid #000;
   height: 50px;
 }
-#ImagePokemon {
+.ImagePokemon {
   width: 175px;
   height: 99px;
   border: 1px solid #000;
@@ -87,7 +87,7 @@ body {
   margin: 0;
 }
 
-#HealtBarBottom {
+#healtbarP {
   width: 225px;
   border: 1px solid #000;
   height: 25px;
@@ -99,4 +99,8 @@ body {
 h2 {
   text-align: center;
   color: #fff;
+}
+.img {
+  width: 175px;
+  height: 99px;
 }
