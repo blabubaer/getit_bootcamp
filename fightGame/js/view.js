@@ -111,10 +111,10 @@ document.addEventListener("keydown", event => {
     if (event.keyCode === 8){
         clickB()
     }
-    if (event.keyCode === 38 || event.keyCode === 40){
+    if (event.keyCode === 38 || event.keyCode === 40 || event.keyCode === 87 || event.keyCode === 83){
         upDown()
     }
-    if (event.keyCode === 37 || event.keyCode === 39){
+    if (event.keyCode === 37 || event.keyCode === 39 || event.keyCode === 65 || event.keyCode === 68){
         leftRight()
     }
 
