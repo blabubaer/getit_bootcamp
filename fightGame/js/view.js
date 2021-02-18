@@ -101,3 +101,21 @@ function view() {
     // needs to be updated
     healthbarE.innerHTML = HealthBarEnemy
 }
+
+// Button can be used by the following keys
+
+document.addEventListener("keydown", event => {
+    if (event.keyCode === 32){
+        clicker()
+    }
+    if (event.keyCode === 8){
+        clickB()
+    }
+    if (event.keyCode === 38 || event.keyCode === 40){
+        upDown()
+    }
+    if (event.keyCode === 37 || event.keyCode === 39){
+        leftRight()
+    }
+
+})

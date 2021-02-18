@@ -249,13 +249,13 @@ function stage5(){
         player_pokemon = player.pokemons[activecursor]
         text = player.name + " sends " + player_pokemon.name + " do fight."
         view()
-        stage = 1
+        stage = 31
     }
     else{
         text = player.pokemons[activecursor].name + " can no longer fight. Please chose another."
         view()
         activecursor = 2
-        stage = 2
+        stage = 31
     }
 
 }
