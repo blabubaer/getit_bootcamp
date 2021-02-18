@@ -51,6 +51,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 5px;
+  font-family: "Press Start 2P", cursive;
 }
 /* Buttons Right */
 .circle {
@@ -62,8 +63,10 @@ body {
 /*Inner Screen grid for text Healtbar and img*/
 .gameContainer {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto;
   grid-template-rows: auto auto;
+}
+#Menu {
 }
 
 .grid-bottom {
@@ -103,4 +106,31 @@ h2 {
 .img {
   width: 175px;
   height: 99px;
+}
+
+#arrowDown {
+  width: 15px;
+  height: 15px;
+}
+
+#arrowRight {
+  width: 15px;
+  height: 15px;
+  transform: rotate(270deg);
+}
+
+#arrowLeft {
+  width: 15px;
+  height: 15px;
+  transform: rotate(90deg);
+}
+
+#arrowUp {
+  width: 15px;
+  height: 15px;
+  transform: rotate(180deg);
+}
+
+button {
+  background-color: #fff;
 }
