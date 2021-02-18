@@ -169,6 +169,6 @@ var text = ''
 var menu
 var activecursor = 0 // Cursor position
 var stage = 1
-var scene = 2
+var scene = 0
 
 

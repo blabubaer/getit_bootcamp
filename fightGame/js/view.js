@@ -33,7 +33,7 @@ function view() {
         introscreen.innerHTML = `
             <div class="winnerLoser">
                 <h1>Winner</h1>
-                <img id="imageCircle" src="../src/trainers/linn.PNG" alt="Linn" style="max-width: 70%; width: 80%; height: 80%; max-height: 80%">
+                <img id="imageCircle" src="../src/trainers/linn.PNG" alt="Linn" style="margin-left: 120px; max-width: 150px; width: 150px; height: 80%; max-height: 80%">
             </div>
         `;
     }
@@ -44,7 +44,7 @@ function view() {
         introscreen.innerHTML = `
             <div class="winnerLoser">
                 <h1>Loser</h1>
-                <img id="imageCircle" src="../src/trainers/linn.PNG" alt="Linn" style="max-width: 70%; width: 80%; height: 80%; max-height: 80%">
+                <img id="imageCircle" src="../src/trainers/linn.PNG" alt="Linn" style="margin-left: 120px; max-width: 150px; width: 150px; height: 80%; max-height: 80%">
             </div>
         `;
     }
