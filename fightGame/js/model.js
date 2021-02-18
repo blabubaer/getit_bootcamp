@@ -168,7 +168,7 @@ var revive = new Item('Revive',1,'revive','Revives a defeated Pokemon.')
 
 //Two trainer are created for the fight
 var enemy = new Trainer('Terje',[],[charmander2])
-var player = new Trainer('Linn',[potion, revive],[bulbasaur])
+var player = new Trainer('Linn',[potion, revive],[squirtle, bulbasaur, charmander])
 
 
 // Modell
