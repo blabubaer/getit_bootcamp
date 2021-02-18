@@ -10,11 +10,17 @@ function clicker(){
     else if(stage == 34) stage34()
     else if(stage == 35) stage35()
     else if(stage == 36) stage36()
+    else if(stage == 80) stage80()
+    else if(stage == 81) stage81()
+    else if(stage == 90) stage90()
+    else if(stage == 91) stage91()
     
 
 }
+
 // Stage 1
 function mainmenu() {
+    scene = 1
     activecursor = 0
     menu = ['Attack','Items', 'Pokemon', 'Flee']
     view()
@@ -135,7 +141,7 @@ function stage34() {
         }
     }
     // True
-    if (available == []) {
+    if (available.length == 0) {
         text = 'All of '+ enemy.name +"'s Pokemon have been defeated."
         view()
         stage = 80
@@ -182,6 +188,34 @@ function stage36(){
     }
 
 }
+// WIN OR LOSE
+// Stage 80 - You Won Outro
+function stage80(){
+    scene = 3
+    view()
+    stage = 81
+}
+//Stage 81 - Back to start
+function stage81(){
+    scene = 0
+    view()
+    stage = 1
+}
+
+//Stage 90 - You Lost
+function stage90(){
+    scene = 2
+    view()
+    stage = 91
+}
+function stage91(){
+    scene = 0
+    view()
+    stage = 1
+}
+
+//Stage 4 - Item selected
+function stage4()
 
 //Pokemon chooser
 //Stage 5 - Is chosen P alive
@@ -204,6 +238,20 @@ function stage5(){
 
 // Arrow-Buttons
 
+function arrowButton(direction){
+    if(direction == 'arrowUp' || direction == 'arrowDown'){
+        activecursor += 2
+    }
+    else {
+        activecursor ++
+    }
+    if(activecursor>(menu.length-1)){
+        activecursor -= (menu.length)
+    }
+    view()
+}
+
+/*
 function up(){
     if (activecursor == 0) {
         activecursor = menu.length-1
@@ -222,6 +270,15 @@ function down() {
         activecursor ++
     }
     view()
+}
+*/
+
+//B-Button
+function clickB(){
+    if (stage == 4 || stage == 5 || stage == 3){
+        stage = 1
+        mainmenu()
+    }
 }
 
 

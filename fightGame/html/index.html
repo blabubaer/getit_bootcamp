@@ -16,20 +16,13 @@
             <h2>GameBoy</h2>
             <div id="justPadding"></div>
             <!-- Her kommer skjermen med Pokémon -->
-            <!-- Inner screen to display the fight -->
-            <!-- Uniq ids for NPC and Player-->
-            <!-- Make a uniq HealtBar for NPC and Player-->
-            <div id="displayScreen">
+            <div id="gameScreen" class="screen dispnone">
                 <div class="gameContainer">
                     <div class="gameContainer">
                         <div id="padding" class="grid-item">
                             <div id='nametagE'></div>
                             <div class="healtBarStyleOuter">
-                                <div class="healtBarStyleInner">
-                                    <div id="healthbarE">
-                                    
-                                    </div>
-                                </div>
+                                <div id="healthbarE"></div>
                             </div>
                         </div>
                         <div id="ImagePokemonE">Image of Pokemon</div>
@@ -42,20 +35,19 @@
                             <div id="padding" class="grid-item">
                                 <div id='nametagP'></div>
                                     <div class="healtBarStyleOuter">
-                                        <div class="healtBarStyleInner">
-                                            <div id="healtbarP">
-                                                
-                                            </div>
-                                        </div>
+                                        <div id="healtbarP"></div>
+                                            
                                     </div>
                                 <div id="AttackBottom">
                                     <div id="Menu"></div>
                                 </div>
-                            
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div id="IntroScreen" class='screen' >
+                
             </div>
             <!-- Buttons -->
             <div class="grid-container">
@@ -65,32 +57,31 @@
                             <div class="grid-item11"></div>
                             <!-- Button -->
                             <div class="grid-item11">
-                                <button class="btn" onclick="up()">
+                                <button class="btn" onclick="arrowButton('arrowUp')">
                                     <img id="arrowUp" src="../src/arrows/arrow.png" alt="right">
                                 </button>
                             </div>
                             <div class="grid-item11"></div>  
                             <!-- Button -->
                             <div class="grid-item11">
-                                <button class="btn">
+                                <button class="btn" onclick="arrowButton('arrowLeft')">
                                     <img id="arrowLeft" src="../src/arrows/arrow.png" alt="right">
                                 </button>
                             </div>
                             <div class="grid-item11"></div>
                             <!-- Button -->
                             <div class="grid-item11">
-                                <button class="btn">
+                                <button class="btn" onclick="arrowButton('arrowRight')">
                                     <img id="arrowRight" src="../src/arrows/arrow.png" alt="right">
                                 </button>
                             </div>  
                             <div class="grid-item11"></div>
                             <!-- Button -->
                             <div class="grid-item11">
-                                <button class="btn" onclick="down()">
+                                <button class="btn" onclick="arrowButton('arrowDown')">
                                     <img id="arrowDown" src="../src/arrows/arrow.png" alt="arrow down">
                                 </button>
                             </div>
-
                             <div class="grid-item11"></div> 
                         </div>
                     </div>
@@ -106,7 +97,7 @@
                             <div class="grid-item11"></div>
                             <!-- Button -->
                             <div class="grid-item11">
-                                <button class="btn circle">B</button>
+                                <button class="btn circle" onclick="clickB()">B</button>
                             </div>
                         </div>
                     </div>
@@ -114,9 +105,6 @@
             </div>
         </div>
     </div>
-
-
-   
     <script src="../js/model.js"></script>
     <script src="../js/view.js"></script>
     <script src="../js/controller.js"></script>

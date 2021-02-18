@@ -157,8 +157,8 @@ var potion = new Item('Potion',2,'heal','Heals Pokemon by 20HP.')
 var revive = new Item('Revive',1,'revive','Revives a defeated Pokemon.')
 
 //Two trainer are created for the fight
-var enemy = new Trainer('Terje',[],[charmander2,bulbasaur2,squirtle2])
-var player = new Trainer('Linn',[potion, revive],[charmander,bulbasaur,squirtle])
+var enemy = new Trainer('Terje',[],[charmander2])
+var player = new Trainer('Linn',[potion, revive],[squirtle,charmander,bulbasaur])
 
 
 // Modell
@@ -169,3 +169,6 @@ var text = ''
 var menu
 var activecursor = 0 // Cursor position
 var stage = 1
+var scene = 2
+
+
