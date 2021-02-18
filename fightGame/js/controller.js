@@ -2,6 +2,7 @@ function clicker(){
     if (stage == 1) mainmenu()
     else if(stage == 2) stage2()
     else if(stage == 3) stage3()
+    else if(stage == 4) stage4()
     else if(stage == 5) stage5()
     else if(stage == 30) stage30()
     else if(stage == 31) stage31()
@@ -10,10 +11,13 @@ function clicker(){
     else if(stage == 34) stage34()
     else if(stage == 35) stage35()
     else if(stage == 36) stage36()
+    else if(stage[0] == 41) stage41(stage[1])
+    else if(stage[0] == 42) stage42(stage[1])
     else if(stage == 80) stage80()
     else if(stage == 81) stage81()
     else if(stage == 90) stage90()
     else if(stage == 91) stage91()
+
     
 
 }
@@ -46,10 +50,10 @@ function stage2() {
         //Items
         menu = []
         activecursor = 0
-        console.log(player.items)
         for (var i in player.items) {
-            console.log(player.items[i])
-            menu.push(player.items[i].name)
+            if(player.items[i].count > 0){
+                menu.push(player.items[i].name)
+            }
         }
         view()
         stage = 4
@@ -69,8 +73,9 @@ function stage2() {
     else if(activecursor == 3) {
         // Run Away
         menu = null
-        text = "You scared little bunny!! You can't run away from a fight!! "
+        text = "You can't run away from Terje!! "
         view()
+        stage = 1
         // -> Stage 6
     }
 }
@@ -193,29 +198,48 @@ function stage36(){
 function stage80(){
     scene = 3
     view()
-    stage = 81
-}
-//Stage 81 - Back to start
-function stage81(){
-    scene = 0
-    view()
-    stage = 1
 }
 
-//Stage 90 - You Lost
+//Stage 90 - You Lost Outro
 function stage90(){
     scene = 2
-    view()
-    stage = 91
-}
-function stage91(){
-    scene = 0
-    view()
-    stage = 1
+    view()    
 }
 
+
 //Stage 4 - Item selected
-function stage4()
+function stage4(){
+    menu = null
+    var chosenI = player.items[activecursor]
+    text = 'Please chose a recipient?'
+    view()
+    stage = [41,chosenI]
+}
+//Stage 41 - chose recipient
+function stage41(chosenI){
+    text = null        
+    menu = []
+    activecursor = 0
+    for (var p in player.pokemons) {
+        menu.push(player.pokemons[p].name)
+    }
+    view()
+    stage = [42,chosenI]
+}
+//Stage 42 - result of Item
+function stage42(chosenI){
+    menu = null
+    var chosenP = player.pokemons[activecursor]
+    var result = chosenI.action(chosenP)
+    text = result[0]
+    view()
+    stage = result[1]
+    activecursor = result[2]
+
+
+}
+
+
 
 //Pokemon chooser
 //Stage 5 - Is chosen P alive
@@ -237,45 +261,40 @@ function stage5(){
 }
 
 // Arrow-Buttons
-
-function arrowButton(direction){
-    if(direction == 'arrowUp' || direction == 'arrowDown'){
-        activecursor += 2
+function upDown(){
+    activecursor += 2
+    if(menu.length == 3 && activecursor == 4){
+        activecursor = 0
     }
-    else {
-        activecursor ++
+    else if(menu.length == 3 && activecursor == 3){
+        activecursor = 1
     }
-    if(activecursor>(menu.length-1)){
+    else if(activecursor>(menu.length-1) && (menu.length == 2 || menu.length == 4 || (menu.length == 3 && activecursor !=1))){
         activecursor -= (menu.length)
     }
     view()
 }
 
-/*
-function up(){
-    if (activecursor == 0) {
-        activecursor = menu.length-1
+function leftRight(){
+    if(activecursor == 0 && menu.length >1){
+        activecursor = 1
     }
-    else {
-        activecursor --
-    }
-    view()
-}
-
-function down() {
-    if (activecursor == (menu.length-1)) {
+    else if(activecursor == 1){
         activecursor = 0
     }
-    else {
-        activecursor ++
+    else if(activecursor == 2 && menu.length == 4){
+        activecursor = 3
+    }
+    else if(activecursor == 3){
+        activecursor = 2
     }
     view()
 }
-*/
 
 //B-Button
 function clickB(){
-    if (stage == 4 || stage == 5 || stage == 3){
+    console.log(stage)
+    if (stage == 4 || stage == 5 || stage == 3 || stage[0] == 42){
         stage = 1
         mainmenu()
     }

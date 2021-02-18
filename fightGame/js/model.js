@@ -52,28 +52,34 @@ class Pokemon{
 
     heal(value){
         if(this.hp>0){
+            if(this.hp == this.max_hp){
+                return [this.name + ' cannot be healed.', 2,1]
+            }
             if((this.max_hp-this.hp) > value){
                 this.hp += value
-                return this.name + ' has received '+ value +'HP.'
+                return [this.name + ' has received '+ value +'HP.',31,0]
             }
             else{
                 var new_value = this.max_hp-this.hp
                 this.hp = this.max_hp
-                return this.name + ' has received '+ new_value +'HP.'
+                return [this.name + ' has received '+ new_value +'HP.',31,0]
             }  
         }
         else{
-            return this.name + ' is dead...'
+            return [this.name + ' is dead...',2,1]
         } 
     }
     
     revive(){
         if(this.hp > 0){
-            return this.name + ' is NOT dead...'
+            return [this.name + ' is NOT dead...',2,1]
         }
         else{
-            this.name = this.name.substring(0,this.name.length-1)
+            console.log(this.name)
+            this.name = this.name.substring(0,this.name.length-2)
             this.hp = this.max_hp / 2
+            console.log(this.name)
+            return [this.name +' has been revived',31,0]
         }
 
     }
@@ -94,11 +100,15 @@ class Item{
         this.purpose = purpose;
         this.description = description;
     }
-    heal(pokemon){
-        pokemon.heal(20)
-    }
-    revive(pokemon){
-        pokemon.revive()
+    action(pokemon){
+        if(this.purpose == 'heal'){
+            return pokemon.heal(20)
+        }
+        else if(this.purpose == 'revive'){
+            return pokemon.revive()
+            
+        }
+        this.count --
     }
 }
 
@@ -164,7 +174,7 @@ var player = new Trainer('Linn',[potion, revive],[squirtle,charmander,bulbasaur]
 // Modell
 
 var enemy_pokemon = charmander2
-var player_pokemon = squirtle
+var player_pokemon = bulbasaur
 var text = ''
 var menu
 var activecursor = 0 // Cursor position
