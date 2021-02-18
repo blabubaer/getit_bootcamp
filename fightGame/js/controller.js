@@ -16,7 +16,7 @@ function clicker(){
 // Stage 1
 function mainmenu() {
     activecursor = 0
-    menu = ['Attack','Items', 'Pokemon', 'Run Away']
+    menu = ['Attack','Items', 'Pokemon', 'Flee']
     view()
     stage ++
 }

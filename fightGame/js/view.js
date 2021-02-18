@@ -5,10 +5,10 @@ function view() {
     var menu_div = document.getElementById('Menu')
     //Main Menu
     if(menu) {
-        var ul = `<ul>`
+        var ul = `<ul class="menuContainer">`
         for (var i in menu) {
             if (i == activecursor) {
-                ul += ('<li>'+ menu[i]+'</li>')
+                ul += ('<li class="menuSelected">'+ menu[i]+'</li>')
             }
             else {
                 ul +=('<li>' + menu[i] + '</li>')
@@ -48,5 +48,14 @@ function view() {
    var healthbarP = document.getElementById('healthbarE')
    // needs to be updated
    healthbarP.innerHTML = enemy_pokemon.hp
+   var healtP = `
+      <div>
+        <progress max="'+max_hp'">
+            
+        </progress>
+      </div>
+   `
+
+   
 
 }
